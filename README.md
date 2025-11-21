@@ -15,8 +15,7 @@ The goal of this repository is to build a strong foundation in containerization 
 - A final project using Docker
 
 ## Topics Covered
-- Docker installation & basics  
-- Images and containers  
+- Docker Basics 
 - Writing Dockerfiles  
 - Multi-stage builds  
 - Volumes (bind mounts & named volumes)  
