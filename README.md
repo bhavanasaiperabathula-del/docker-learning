@@ -21,7 +21,6 @@ The goal of this repository is to build a strong foundation in containerization 
 - Volumes (bind mounts & named volumes)  
 - Networking between containers  
 - Docker Compose  
-- Nginx & reverse proxy  
 - Docker Swarm basics  
 - Production-ready container setups  
 
