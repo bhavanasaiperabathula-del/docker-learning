@@ -36,13 +36,18 @@ cd project
 * Build Docker image
 
 ```
-docker build -t notes-app .
+docker build -t notes-app-volume .
 ```
 
-* Run the container
+* Create a Docker volume for persistent storage
+```
+docker volume create notes-data
+```
+
+* Run the container with attached volume
 
 ```
-docker run -p 8000:8000 notes-app
+docker run -d --name app-volume  -p 8000:8000 -v notes-data:/data notes-app-volume
 ```
 
 ---
