@@ -1,15 +1,14 @@
 # Notes API
 
-A simple **FastAPI** project to manage notes.  
-Users can **add, list, get by ID, and delete notes**.  
-The project is **containerized with Docker** for easy setup and deployment.
+A simple FastAPI Notes application where users can create and view notes.
+The application is fully containerized using Docker.
+Previously, data was lost whenever the container stopped or was removed.
+By attaching Docker volumes, the notes are now stored persistently even after container restarts.
 
 ## Features
 
 - Add a note (`POST /add/notes`)  
 - List all notes (`GET /notes/all`)  
-- Get note by ID (`GET /notes/{id}`)  
-- Delete note by ID (`DELETE /notes/{id}`)  
 - Runs in a Docker container for consistency  
 - Lightweight and easy to extend
 
