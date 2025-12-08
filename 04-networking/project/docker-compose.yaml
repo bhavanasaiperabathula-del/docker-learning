@@ -1,0 +1,42 @@
+version: "3.9"
+
+services:
+  db:
+    image: postgres:16
+    container_name: notes-db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: notesdb
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    networks:
+      - backend
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 3s
+      timeout: 3s
+      retries: 5
+
+  api:
+    build: .
+    container_name: notes-api
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DB_USER: postgres
+      DB_PASSWORD: postgres
+      DB_HOST: db          # must match service name above
+      DB_PORT: "5432"
+      DB_NAME: notesdb
+    ports:
+      - "8000:8000"
+    networks:
+      - backend
+
+networks:
+  backend:
+
+volumes:
+  db_data:
