@@ -60,7 +60,7 @@ docker volume create db_volume
 docker network create --driver bridge --internal private_net
 docker network create --driver bridge public_net
 ```
-![create screenshot](./images/internalnetwork.png)
+![create screenshot](../images/internalnetwork.png)
 
 * Run the container with attached network
 
@@ -68,7 +68,7 @@ docker network create --driver bridge public_net
 docker run -d --name application --network public_net -p 8080:8080 notes-api
 docker network connect private_net application
 ```
-![create screenshot](./images/createapplication.png)
+![create screenshot](../images/createapplication.png)
 
 ```
 docker run -d --name DB `
@@ -84,7 +84,7 @@ docker run -d --name DB `
 docker run --rm --network container:notes-db busybox ping -c1 google.com
 ```
 
-![create screenshot](./images/createDB.png)
+![create screenshot](../images/createDB.png)
 ---
 
 ## API Endpoints
